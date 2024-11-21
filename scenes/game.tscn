@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cabyflgkmv51q"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_f2q2i"]
+size = Vector2(6, 6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4n38m"]
+albedo_color = Color(0.197937, 0.197937, 0.197937, 1)
+
+[node name="Game" type="Node3D"]
+
+[node name="Map" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.999679, 0.0253568, 0, -0.0253568, 0.999679, 0, 0, 0)
+mesh = SubResource("PlaneMesh_f2q2i")
+material = SubResource("StandardMaterial3D_4n38m")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2, 0)
+light_energy = 5.0
+shadow_enabled = true
