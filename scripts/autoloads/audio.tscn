@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://tdolf2x64f2"]
+
+[ext_resource type="AudioStream" uid="uid://br2yxp0wbewff" path="res://assets/audio/bgm/main theme.wav" id="1_bwalw"]
+
+[node name="Audio" type="Node"]
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_bwalw")
+autoplay = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]

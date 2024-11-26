@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://cabyflgkmv51q"]
+[gd_scene load_steps=5 format=3 uid="uid://cabyflgkmv51q"]
+
+[ext_resource type="PackedScene" uid="uid://qhhokma80i3g" path="res://scenes/enitities/characters/player/player.tscn" id="1_rc2yo"]
+[ext_resource type="Texture2D" uid="uid://p7lr1x1tedig" path="res://assets/sprites/player/main_character.png" id="2_k0v2k"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_f2q2i"]
-size = Vector2(6, 6)
+size = Vector2(20, 20)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4n38m"]
 albedo_color = Color(0.197937, 0.197937, 0.197937, 1)
@@ -13,10 +16,16 @@ transform = Transform3D(1, 0, 0, 0, 0.999679, 0.0253568, 0, -0.0253568, 0.999679
 mesh = SubResource("PlaneMesh_f2q2i")
 material = SubResource("StandardMaterial3D_4n38m")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2, 0)
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2, 0)
-light_energy = 5.0
 shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("1_rc2yo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2, 0.1, 0)
+texture = ExtResource("2_k0v2k")
