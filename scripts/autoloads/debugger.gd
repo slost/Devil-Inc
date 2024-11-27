@@ -13,7 +13,10 @@ func _input(_event):
 
 func get_label() -> String:
 	return "Cursor position: " + str(cursor_position) + "\n" + "Player position: " \
-		+ str(player_position) + "\n" + "mouse_position: " + str(get_viewport().get_mouse_position())
+		+ str(player_position) + "\n" + "mouse_position: " + str(get_viewport().get_mouse_position()) \
+		+ "\n" + get_item_list_string()
 
-func add_text(text: String) -> void:
-	pass
+func get_item_list_string() -> String:
+	if Global.player:
+		return "Item list: " + str(Global.player.inventory.get_children())
+	return ""

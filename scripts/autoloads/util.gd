@@ -24,4 +24,7 @@ func get_cursur_position() -> Vector3:
 
 # Generate random item
 func generate_item():
-	pass
+	if not Global.player:
+		return
+	var item = preload("res://scenes/items/item.tscn").instantiate()
+	Global.player.inventory.add_child(item)

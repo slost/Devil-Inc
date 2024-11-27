@@ -40,6 +40,7 @@ project/assembly_name="Devil Inc."
 
 folder_colors={
 "res://assets/": "yellow",
+"res://database/": "green",
 "res://scenes/": "orange",
 "res://scripts/": "red"
 }
