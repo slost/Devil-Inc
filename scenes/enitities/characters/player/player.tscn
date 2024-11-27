@@ -18,6 +18,7 @@ script = ExtResource("1_vx1dx")
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 shaded = true
+alpha_cut = 2
 texture_filter = 0
 texture = ExtResource("1_0b7gp")
 hframes = 4
@@ -42,9 +43,12 @@ shape = SubResource("CapsuleShape3D_y4ala")
 
 [node name="MovementHandler" type="Node" parent="."]
 script = ExtResource("2_cj3nw")
+time_to_focus = 150.0
 
 [node name="Cursor" type="Area3D" parent="."]
 script = ExtResource("4_n0cig")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cursor"]
 shape = SubResource("BoxShape3D_2nw4r")
+
+[node name="Inventory" type="Node" parent="."]
