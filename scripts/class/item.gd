@@ -14,8 +14,13 @@ class_name Item
 # Elemental stats   
 @export var elementals: Array[Elemental] = []
 
+func _ready() -> void:
+    generate_data()
+
 
 # Generate data for the item
-func generate_data():
+func generate_data() -> void:
+    NAME = ProcGen.generate_item_name()
+    $Label.text = NAME
 	# TODO: Mr. Earthz
     pass

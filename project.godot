@@ -21,6 +21,7 @@ Debug="*res://scripts/autoloads/debugger.gd"
 Audio="*res://scripts/autoloads/audio.tscn"
 Global="*res://scripts/autoloads/global.gd"
 Util="*res://scripts/autoloads/util.gd"
+ProcGen="*res://scripts/autoloads/proc_gen.gd"
 
 [debug]
 

@@ -3,6 +3,7 @@ extends Node
 var player: Node
 var camera: Camera3D
 var cursor: Node
+var seed_string: String = "ASFASD"
 
 var palatte: Array = [
     Color.html("#0f052d"),
