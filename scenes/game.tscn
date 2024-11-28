@@ -41,8 +41,9 @@ transform = Transform3D(1, 0, 0, 0, -0.5, 0.866025, 0, -0.866025, -0.5, 0, 2.633
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="DebuggerLabel" type="Label" parent="CanvasLayer"]
+offset_top = 264.0
 offset_right = 389.0
-offset_bottom = 457.0
+offset_bottom = 721.0
 script = ExtResource("3_1imtx")
 
 [node name="Control" type="Control" parent="CanvasLayer"]

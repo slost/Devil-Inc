@@ -1,3 +1,21 @@
-[gd_scene format=3 uid="uid://d8vjv7rjifwb"]
+[gd_scene load_steps=3 format=3 uid="uid://h2g0c6k6i31t"]
 
-[node name="Item" type="Node"]
+[ext_resource type="Script" path="res://scripts/class/item.gd" id="1_a8ibb"]
+[ext_resource type="Texture2D" uid="uid://b13vu4e2hpmkg" path="res://assets/sprites/placeholder_icon_32_32.png" id="2_ho3v3"]
+
+[node name="Item" type="Panel"]
+script = ExtResource("1_a8ibb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ho3v3")
+offset = Vector2(16, 16)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -43.0
+offset_top = 32.0
+offset_right = 74.0
+offset_bottom = 55.0
+theme_override_font_sizes/font_size = 12
+text = "ITEM_1"
+horizontal_alignment = 1

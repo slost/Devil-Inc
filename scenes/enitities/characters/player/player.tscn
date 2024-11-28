@@ -1,14 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://qhhokma80i3g"]
+[gd_scene load_steps=8 format=3 uid="uid://qhhokma80i3g"]
 
 [ext_resource type="Texture2D" uid="uid://bpu35etumsgh0" path="res://assets/sprites/player/player.png" id="1_0b7gp"]
 [ext_resource type="Script" path="res://scenes/enitities/characters/player/player.gd" id="1_vx1dx"]
 [ext_resource type="Script" path="res://scenes/enitities/characters/player/movement_handler.gd" id="2_cj3nw"]
 [ext_resource type="Script" path="res://scenes/enitities/characters/player/cursor.gd" id="4_n0cig"]
-[ext_resource type="Script" path="res://scripts/class/item.gd" id="5_tyxx8"]
-[ext_resource type="Script" path="res://scripts/class/elemental.gd" id="6_4f71s"]
-[ext_resource type="Script" path="res://scripts/class/stats.gd" id="6_hfylj"]
-[ext_resource type="Resource" uid="uid://caknaim0yo3fe" path="res://database/elementals/fire.tres" id="7_1mo8p"]
-[ext_resource type="Script" path="res://scripts/class/projectile_stats.gd" id="7_b35w3"]
+[ext_resource type="PackedScene" uid="uid://h2g0c6k6i31t" path="res://scenes/items/item.tscn" id="5_qcdsd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y4ala"]
 radius = 1.0
@@ -16,20 +12,6 @@ height = 3.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2nw4r"]
 size = Vector3(0.5, 0.5, 0.5)
-
-[sub_resource type="Resource" id="Resource_aykwg"]
-script = ExtResource("6_hfylj")
-attack_damage = 10.0
-attack_speed = 1.0
-critical_chance = 0.05
-critical_damage = 1.5
-attack_range = 100.0
-attack_cooldown = 1.0
-
-[sub_resource type="Resource" id="Resource_5c61o"]
-script = ExtResource("7_b35w3")
-speed = 100.0
-size = 100.0
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("inventory")]
 script = ExtResource("1_vx1dx")
@@ -63,7 +45,8 @@ shape = SubResource("CapsuleShape3D_y4ala")
 
 [node name="MovementHandler" type="Node" parent="."]
 script = ExtResource("2_cj3nw")
-time_to_focus = 150.0
+time_to_move = 30.0
+time_to_focus = 300.0
 
 [node name="Cursor" type="Area3D" parent="."]
 script = ExtResource("4_n0cig")
@@ -71,11 +54,19 @@ script = ExtResource("4_n0cig")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cursor"]
 shape = SubResource("BoxShape3D_2nw4r")
 
-[node name="Inventory" type="Node" parent="."]
+[node name="Inventory" type="GridContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 24.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 48
+theme_override_constants/v_separation = 48
+columns = 20
 
-[node name="Item" type="Node" parent="Inventory"]
-script = ExtResource("5_tyxx8")
-NAME = "test_item_1"
-stats = SubResource("Resource_aykwg")
-projectile_stats = SubResource("Resource_5c61o")
-elementals = Array[ExtResource("6_4f71s")]([ExtResource("7_1mo8p")])
+[node name="Item" parent="Inventory" instance=ExtResource("5_qcdsd")]
+layout_mode = 2
