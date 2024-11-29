@@ -28,3 +28,7 @@ func generate_item():
 		return
 	var item = preload("res://scenes/items/item.tscn").instantiate()
 	Global.player.inventory.add_child(item)
+
+func get_max_hp(base_max_hp: float, multiplier: float) -> float:
+	var final_max_hp = base_max_hp * multiplier
+	return final_max_hp

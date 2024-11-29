@@ -1,5 +1,5 @@
 extends Resource
-class_name Stats
+class_name ItemStats
 
 @export var attack_damage: float = 10.0
 @export var attack_speed: float = 1.0

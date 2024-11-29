@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://p7lr1x1tedig"
-path.s3tc="res://.godot/imported/main_character.png-5fd4ca1519b3ac66c95e88a5c955c4e7.s3tc.ctex"
+uid="uid://wgis0tbn8g77"
+path.s3tc="res://.godot/imported/cystal.png-68f3330149ce5b5627ac872e3209b62f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/sprites/player/main_character.png"
-dest_files=["res://.godot/imported/main_character.png-5fd4ca1519b3ac66c95e88a5c955c4e7.s3tc.ctex"]
+source_file="res://assets/sprites/characters/cystal.png"
+dest_files=["res://.godot/imported/cystal.png-68f3330149ce5b5627ac872e3209b62f.s3tc.ctex"]
 
 [params]
 

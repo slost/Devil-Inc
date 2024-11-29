@@ -8,7 +8,7 @@ class_name Item
 
 @export_category("Stats")
 # Stats
-@export var stats: Stats
+@export var stats: ItemStats
 # Projectile stats
 @export var projectile_stats: ProjectileStats
 # Elemental stats   

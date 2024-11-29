@@ -1,10 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://h2g0c6k6i31t"]
 
-[ext_resource type="Script" path="res://scripts/class/item.gd" id="1_a8ibb"]
+[ext_resource type="Script" path="res://scripts/classes/item.gd" id="1_a8ibb"]
 [ext_resource type="Texture2D" uid="uid://b13vu4e2hpmkg" path="res://assets/sprites/placeholder_icon_32_32.png" id="2_ho3v3"]
 
 [node name="Item" type="Panel"]
 script = ExtResource("1_a8ibb")
+NAME = null
+description = null
+elementals = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_ho3v3")

@@ -1,24 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://qhhokma80i3g"]
+[gd_scene load_steps=6 format=3 uid="uid://qhhokma80i3g"]
 
-[ext_resource type="Texture2D" uid="uid://bpu35etumsgh0" path="res://assets/sprites/player/player.png" id="1_0b7gp"]
+[ext_resource type="Texture2D" uid="uid://bpu35etumsgh0" path="res://assets/sprites/characters/player.png" id="1_0b7gp"]
 [ext_resource type="Script" path="res://scenes/enitities/characters/player/player.gd" id="1_vx1dx"]
 [ext_resource type="Script" path="res://scenes/enitities/characters/player/movement_handler.gd" id="2_cj3nw"]
-[ext_resource type="Script" path="res://scenes/enitities/characters/player/cursor.gd" id="4_n0cig"]
 [ext_resource type="PackedScene" uid="uid://h2g0c6k6i31t" path="res://scenes/items/item.tscn" id="5_qcdsd"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y4ala"]
-radius = 1.0
-height = 3.0
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_2nw4r"]
-size = Vector3(0.5, 0.5, 0.5)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rx4li"]
+radius = 0.2
+height = 0.5
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("inventory")]
 script = ExtResource("1_vx1dx")
 inventory = NodePath("Inventory")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 shaded = true
 alpha_cut = 2
 texture_filter = 0
@@ -40,19 +35,13 @@ shadow_enabled = true
 omni_range = 0.128
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0.3)
-shape = SubResource("CapsuleShape3D_y4ala")
+transform = Transform3D(0.997658, 0.0650533, 0.0211409, -0.0174286, -0.0571135, 0.998216, 0.0661446, -0.996246, -0.0558459, 0, 0, 0.0141245)
+shape = SubResource("CapsuleShape3D_rx4li")
 
 [node name="MovementHandler" type="Node" parent="."]
 script = ExtResource("2_cj3nw")
 time_to_move = 30.0
 time_to_focus = 300.0
-
-[node name="Cursor" type="Area3D" parent="."]
-script = ExtResource("4_n0cig")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cursor"]
-shape = SubResource("BoxShape3D_2nw4r")
 
 [node name="Inventory" type="GridContainer" parent="."]
 anchors_preset = 15
