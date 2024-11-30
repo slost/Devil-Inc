@@ -1,0 +1,101 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfvk1yywywm20"]
+
+[ext_resource type="PackedScene" uid="uid://fld200yb78gk" path="res://scenes/options/volume_slider_settings.tscn" id="1_cxo17"]
+
+[node name="Setting_contrainer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = 50.0
+offset_right = -100.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+tab_alignment = 1
+current_tab = 0
+
+[node name="Settings" type="TabBar" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Settings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 90
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 90
+theme_override_constants/margin_bottom = 24
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Settings/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Settings/MarginContainer/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="volume_slider_settings" parent="TabContainer/Settings/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_cxo17")]
+layout_mode = 2
+bus_name = "Master"
+
+[node name="volume_slider_settings2" parent="TabContainer/Settings/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_cxo17")]
+layout_mode = 2
+bus_name = "Music"
+
+[node name="volume_slider_settings3" parent="TabContainer/Settings/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_cxo17")]
+layout_mode = 2
+bus_name = "SFX"
+
+[node name="volume_slider_settings4" parent="TabContainer/Settings/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_cxo17")]
+layout_mode = 2
+bus_name = "UI"
+
+[node name="In-game" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/In-game"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 89
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/In-game/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="speed" type="Label" parent="TabContainer/In-game/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "SPEED"
+
+[node name="health" type="Label" parent="TabContainer/In-game/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "HEALTH"
+
+[node name="mode" type="Label" parent="TabContainer/In-game/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "MODE"
+
+[node name="reset" type="Label" parent="TabContainer/In-game/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "RESET"
