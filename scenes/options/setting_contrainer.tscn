@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://bfvk1yywywm20"]
+[gd_scene load_steps=2 format=3 uid="uid://bfvk1yywywm20"]
+
+[ext_resource type="PackedScene" uid="uid://fld200yb78gk" path="res://scenes/options/volume_slider_settings.tscn" id="1_cxo17"]
 
 [node name="Setting_contrainer" type="Control"]
 layout_mode = 3
@@ -33,30 +35,33 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 89
+theme_override_constants/margin_left = 90
 theme_override_constants/margin_top = 24
-theme_override_constants/margin_right = 24
+theme_override_constants/margin_right = 90
 theme_override_constants/margin_bottom = 24
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Settings/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Settings/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Settings/MarginContainer/ScrollContainer"]
 layout_mode = 2
 theme_override_constants/separation = 64
 
-[node name="master" type="Label" parent="TabContainer/Settings/MarginContainer/VBoxContainer"]
+[node name="volume_slider_settings" parent="TabContainer/Settings/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_cxo17")]
 layout_mode = 2
-text = "MASTER VOLUME"
+bus_name = "Master"
 
-[node name="bgm" type="Label" parent="TabContainer/Settings/MarginContainer/VBoxContainer"]
+[node name="volume_slider_settings2" parent="TabContainer/Settings/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_cxo17")]
 layout_mode = 2
-text = "MUSIC VOLUME"
+bus_name = "Music"
 
-[node name="sfx" type="Label" parent="TabContainer/Settings/MarginContainer/VBoxContainer"]
+[node name="volume_slider_settings3" parent="TabContainer/Settings/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_cxo17")]
 layout_mode = 2
-text = "EFFECT VOLUME"
+bus_name = "SFX"
 
-[node name="ui" type="Label" parent="TabContainer/Settings/MarginContainer/VBoxContainer"]
+[node name="volume_slider_settings4" parent="TabContainer/Settings/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_cxo17")]
 layout_mode = 2
-text = "INTERFACE VOLUME"
+bus_name = "UI"
 
 [node name="In-game" type="TabBar" parent="TabContainer"]
 visible = false

@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://driosopp3hfv4"]
-
-[ext_resource type="Script" path="res://scripts/menu/volume_slider.gd" id="1_jrhnn"]
-
-[node name="volume_slider" type="HSlider"]
-offset_right = 8.0
-offset_bottom = 16.0
-script = ExtResource("1_jrhnn")

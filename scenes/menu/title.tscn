@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://dpyqweqtlpsrb"]
+[gd_scene load_steps=11 format=3 uid="uid://dpyqweqtlpsrb"]
 
 [ext_resource type="Script" path="res://scripts/menu/title.gd" id="1_jkxbs"]
 [ext_resource type="Shader" path="res://assets/shaders/scroll.gdshader" id="2_5r50l"]
 [ext_resource type="Texture2D" uid="uid://ds50t3otvw1j" path="res://assets/titles/pattern.png" id="3_mh45y"]
 [ext_resource type="Texture2D" uid="uid://1l3dcsdymca7" path="res://assets/logo.png" id="4_d8b7k"]
-[ext_resource type="PackedScene" uid="uid://dtc25e8n7w72s" path="res://scenes/menu/options.tscn" id="5_ayxb0"]
+[ext_resource type="PackedScene" uid="uid://rcyrv0xwolqb" path="res://scenes/options/ui_sounds.tscn" id="4_pbife"]
+[ext_resource type="PackedScene" uid="uid://dtc25e8n7w72s" path="res://scenes/options/options.tscn" id="5_ayxb0"]
+[ext_resource type="PackedScene" uid="uid://c7ojnoeagubf4" path="res://scenes/menu/tutorial.tscn" id="7_564ke"]
 
 [sub_resource type="Gradient" id="Gradient_xj6xj"]
 colors = PackedColorArray(0, 0, 0, 1, 0.12549, 0.211765, 0.443137, 1)
@@ -46,6 +48,9 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_mh45y")
 stretch_mode = 1
+
+[node name="ui_sounds" parent="." instance=ExtResource("4_pbife")]
+root_path = NodePath("..")
 
 [node name="Logo" type="Sprite2D" parent="."]
 position = Vector2(456, 363)
@@ -90,6 +95,10 @@ layout_mode = 2
 text = "Quit"
 
 [node name="Options" parent="." instance=ExtResource("5_ayxb0")]
+visible = false
+layout_mode = 1
+
+[node name="Tutorial_Page" parent="." instance=ExtResource("7_564ke")]
 visible = false
 layout_mode = 1
 
