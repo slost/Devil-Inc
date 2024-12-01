@@ -1,11 +1,19 @@
 extends Node
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+@export var sfx_player: AudioStreamPlayer2D
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+enum SFX {
+	OPENING_CHEST,
+	CLICK,
+}
+
+
+func play_sound(sound: int) -> void:
+	print(sfx_player)
+	match sound:
+		SFX.OPENING_CHEST:
+			sfx_player.stream = preload("res://assets/audio/sfx/opening_chest.wav")
+		_:
+			sfx_player.stream = preload("res://assets/audio/ui/onclick.wav")
+	sfx_player.play()
