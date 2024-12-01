@@ -23,6 +23,9 @@ func _process(delta: float) -> void:
 		spawn_timer = 0
 		Util.generate_item()
 		print("Item spawned")
+	elif spawn_timer > 1.5:
+		reset_chest()
+
 
 
 	update_progress_bar()
@@ -34,3 +37,6 @@ func update_progress_bar() -> void:
 func open_chest() -> void:
 	Audio.play_sound(Audio.SFX.OPENING_CHEST)
 	anim_player.play("opening")
+
+func reset_chest() -> void:
+	anim_player.play("RESET")
