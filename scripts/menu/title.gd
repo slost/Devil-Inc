@@ -1,7 +1,7 @@
 class_name MainMenu
 extends Control
 
-@onready var start_game = preload("res://scenes/game.tscn") as PackedScene
+#@onready var start_game = preload("res://scenes/game.tscn") as PackedScene
 @onready var margin_container = $MarginContainer as MarginContainer
 @onready var options_menu = $Options as OptionsMenu
 @onready var tutorial_page = $Tutorial_Page as TutorialPage
@@ -11,7 +11,7 @@ func _ready() -> void:
 	handle_connecting_signal()
 
 func _on_play_pressed() -> void:
-	get_tree().change_scene_to_packed(start_game)
+	get_tree().change_scene_to_file("res://scenes/game.tscn")
 
 func _on_tutorial_pressed() -> void:
 	tutorial_page.set_process(true)

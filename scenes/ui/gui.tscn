@@ -1,7 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://642fxxr0tiur"]
 
-[ext_resource type="PackedScene" uid="uid://ijhfll1epcbt" path="res://scenes/ui/pause_menu.tscn" id="1_hyat3"]
+[ext_resource type="Script" path="res://scripts/options/pause_menu.gd" id="1_dfdlw"]
 
 [node name="GUI" type="CanvasLayer"]
-
-[node name="pause_menu" parent="." instance=ExtResource("1_hyat3")]
+script = ExtResource("1_dfdlw")

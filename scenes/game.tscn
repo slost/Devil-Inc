@@ -1,12 +1,12 @@
 [gd_scene load_steps=18 format=3 uid="uid://cabyflgkmv51q"]
 
-[ext_resource type="PackedScene" uid="uid://642fxxr0tiur" path="res://scenes/ui/gui.tscn" id="1_303we"]
 [ext_resource type="Texture2D" uid="uid://wgis0tbn8g77" path="res://assets/sprites/characters/cystal.png" id="1_04058"]
+[ext_resource type="PackedScene" uid="uid://rcyrv0xwolqb" path="res://scenes/options/ui_sounds.tscn" id="1_gjy7m"]
 [ext_resource type="PackedScene" uid="uid://qhhokma80i3g" path="res://scenes/enitities/characters/player/player.tscn" id="1_rc2yo"]
 [ext_resource type="Script" path="res://scenes/ui/debugger_label.gd" id="3_1imtx"]
 [ext_resource type="Script" path="res://scripts/classes/lootbox.gd" id="4_8mtqr"]
 [ext_resource type="Texture2D" uid="uid://cjenraw6v5maa" path="res://assets/sprites/loot_boxes/loot_boxes.png" id="4_8yb40"]
-[ext_resource type="PackedScene" uid="uid://ijhfll1epcbt" path="res://scenes/ui/pause_menu.tscn" id="4_r6gfg"]
+[ext_resource type="PackedScene" uid="uid://bk0nfo5btjpxm" path="res://scenes/ui/pause_menu.tscn" id="4_c3jyc"]
 [ext_resource type="Script" path="res://scripts/classes/crystal.gd" id="5_w7jn0"]
 [ext_resource type="Script" path="res://scripts/classes/base_stats.gd" id="6_iscmq"]
 [ext_resource type="PackedScene" uid="uid://7h715af03isd" path="res://scenes/ui/progress_bar.tscn" id="8_dkxn6"]
@@ -52,9 +52,10 @@ transform = Transform3D(0.707107, 0.353553, -0.612372, 0, 0.866025, 0.5, 0.70710
 light_energy = 4.446
 shadow_enabled = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="ui_sounds" parent="." instance=ExtResource("1_gjy7m")]
+root_path = NodePath("..")
 
-[node name="pause_menu2" parent="CanvasLayer" instance=ExtResource("4_r6gfg")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="DebuggerLabel" type="Label" parent="CanvasLayer"]
 offset_top = 264.0
@@ -102,8 +103,7 @@ vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Control/LootBox"]
 
-[node name="GUI" parent="." instance=ExtResource("1_303we")]
-visible = false
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("4_c3jyc")]
 
 [node name="Entities" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, -0.7, 0)

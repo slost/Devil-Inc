@@ -1,6 +1,11 @@
+class_name PauseMenu
 extends Control
 
-@onready var pasue_button = $Button_pause as Button
+@export var options_menu: OptionsMenu
+@onready var pause_panel = $PanelContainer as PanelContainer
+
+func _ready() -> void:
+	_connecting_signal()
 
 func resume():
 	get_tree().paused = false
@@ -16,16 +21,26 @@ func testEsc():
 	elif Input.is_action_just_pressed("esc") and get_tree().paused:
 		resume()
 
-func _on_resume_pressed() -> void:
+
+func _on_resume_pressed():
 	resume()
 
 
-func _on_options_pressed() -> void:
-	pass # Replace with function body.
-
-
-func _on_quit_pressed() -> void:
-	pass # Replace with function body.
+func _on_quit_pressed():
+	get_tree().quit()
 
 func _process(delta):
 	testEsc()
+
+func _on_options_pressed() -> void:
+	options_menu.set_process(true)
+	pause_panel.visible = false
+	options_menu.visible = true
+	
+func _on_exit_options_menu() -> void:
+	pause_panel.visible = true
+	options_menu.visible = false
+
+func _connecting_signal() -> void:
+	if options_menu != null:
+		options_menu.exit_options_menu.connect(_on_exit_options_menu)
