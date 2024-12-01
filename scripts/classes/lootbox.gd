@@ -6,6 +6,7 @@ class_name LootBox
 @export var time_to_spawn: float = 30.0
 @export var progress_bar: ProgressBar
 @export var anim_player: AnimationPlayer
+@export var upgrade_menu: UpgradeMenu
 
 # Timer counter
 var spawn_timer: float = 0.0
@@ -40,3 +41,9 @@ func open_chest() -> void:
 
 func reset_chest() -> void:
 	anim_player.play("RESET")
+
+func _on_mouse_entered() -> void:
+	if upgrade_menu != null:
+		upgrade_menu.visible = true
+	elif upgrade_menu == null:
+		upgrade_menu.visible = false

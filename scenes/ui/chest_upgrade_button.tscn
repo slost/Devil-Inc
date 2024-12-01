@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://ymdvgf33tuvq"]
+
+[ext_resource type="Texture2D" uid="uid://bsi44517icajc" path="res://assets/sprites/ui/up_button.png" id="1_qrgxc"]
+
+[node name="chest_upgrade_button" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 460.0
+offset_bottom = 72.0
+theme_override_constants/separation = -40
+
+[node name="upgrade_type" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "upgrade"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("1_qrgxc")
+flat = true
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
+visible = false
+layout_mode = 2

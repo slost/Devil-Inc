@@ -20,4 +20,9 @@ func _ready() -> void:
 func get_stat(stat: String) -> float:
 	if stats:
 		return stats.get("stat")
-	return 1.0
+
+	return 0.0
+
+func set_stat(stat: String, value: float) -> void:
+	if stats:
+		stats.set(stat, value)
