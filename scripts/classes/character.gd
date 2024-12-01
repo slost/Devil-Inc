@@ -5,8 +5,10 @@ class_name Character
 
 @export var stats: BaseStats
 
-var max_hp: float = 0.0
-var max_hp_multiplier: float = 1.0
+@export var level: int = 1
+
+@export var max_hp: float = 0.0
+@export var max_hp_multiplier: float = 1.0
 var hp: float = 0.0
 
 func _ready() -> void:

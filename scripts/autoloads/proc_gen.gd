@@ -5,7 +5,7 @@ extends Node
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
 func _ready() -> void:
-	rng.seed = Global.seed_string.hash()
+	rng.seed = Global.current_seed.hash()
 
 func generate_name() -> String:
 	var syllables = ["ka", "ri", "to", "ma", "su", "ne", "ko", "ta", "shi", "ru"]

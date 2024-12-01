@@ -1,8 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://tdolf2x64f2"]
+[gd_scene load_steps=4 format=3 uid="uid://tdolf2x64f2"]
 
 [ext_resource type="AudioStream" uid="uid://br2yxp0wbewff" path="res://assets/audio/bgm/main theme.wav" id="1_bwalw"]
+[ext_resource type="Script" path="res://scripts/audio/audio.gd" id="1_dykq6"]
 
-[node name="Audio" type="Node"]
+[sub_resource type="AudioStream" id="AudioStream_d2or0"]
+
+[node name="Audio" type="Node" node_paths=PackedStringArray("sfx_player")]
+script = ExtResource("1_dykq6")
+sfx_player = NodePath("SFX")
 
 [node name="BGM" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("1_bwalw")
@@ -13,3 +18,7 @@ bus = &"Music"
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 volume_db = 5.0
 bus = &"Music"
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStream_d2or0")
+bus = &"SFX"
