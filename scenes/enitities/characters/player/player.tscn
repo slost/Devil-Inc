@@ -19,18 +19,21 @@ alpha_cut = 2
 texture_filter = 0
 texture = ExtResource("1_0b7gp")
 hframes = 4
+vframes = 9
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Sprite3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0370224, 0.208498, 0.1)
+visible = false
 light_color = Color(1, 0, 0, 1)
-light_energy = 0.515
+light_energy = 0.1
 shadow_enabled = true
 omni_range = 0.128
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Sprite3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00869776, 0.208498, 0.1)
+visible = false
 light_color = Color(1, 0, 0, 1)
-light_energy = 0.515
+light_energy = 0.1
 shadow_enabled = true
 omni_range = 0.128
 
