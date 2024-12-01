@@ -3,9 +3,9 @@ extends Control
 
 
 func _ready() -> void:
-	pass # Replace with function body.
+	# Initialize upgrade buttons
+	pass
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
+	# Update button states if needed
 	pass

@@ -1,21 +1,21 @@
-[gd_scene load_steps=29 format=3 uid="uid://cabyflgkmv51q"]
+[gd_scene load_steps=28 format=3 uid="uid://cabyflgkmv51q"]
+
 [ext_resource type="PackedScene" uid="uid://642fxxr0tiur" path="res://scenes/ui/gui.tscn" id="1_303we"]
 [ext_resource type="Texture2D" uid="uid://wgis0tbn8g77" path="res://assets/sprites/characters/cystal.png" id="1_04058"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_bfsv0"]
 [ext_resource type="PackedScene" uid="uid://qhhokma80i3g" path="res://scenes/enitities/characters/player/player.tscn" id="1_rc2yo"]
 [ext_resource type="Script" path="res://scenes/ui/debugger_label.gd" id="3_1imtx"]
-[ext_resource type="PackedScene" uid="uid://b27eeg5c0oyp5" path="res://scenes/ui/upgrade_menu.tscn" id="3_cf1d7"]
 [ext_resource type="Script" path="res://scripts/classes/lootbox.gd" id="4_8mtqr"]
 [ext_resource type="Texture2D" uid="uid://cjenraw6v5maa" path="res://assets/sprites/loot_boxes/loot_boxes.png" id="4_8yb40"]
 [ext_resource type="Script" path="res://scenes/ui/stats_rich_label.gd" id="4_mid4g"]
-[ext_resource type="PackedScene" uid="uid://bk0nfo5btjpxm" path="res://scenes/ui/pause_menu.tscn" id="4_r6gfg"]
+[ext_resource type="PackedScene" uid="uid://ijhfll1epcbt" path="res://scenes/ui/pause_menu.tscn" id="4_r6gfg"]
+[ext_resource type="PackedScene" uid="uid://dbpf3rdsuy3c6" path="res://scenes/ui/upgrade_menu.tscn" id="5_bf3hy"]
 [ext_resource type="Script" path="res://scenes/ui/records_rich_label.gd" id="5_u4yg5"]
 [ext_resource type="Script" path="res://scripts/classes/crystal.gd" id="5_w7jn0"]
 [ext_resource type="Script" path="res://scripts/classes/base_stats.gd" id="6_iscmq"]
 [ext_resource type="PackedScene" uid="uid://7h715af03isd" path="res://scenes/ui/progress_bar.tscn" id="8_dkxn6"]
 [ext_resource type="Script" path="res://scenes/enitities/characters/player/cursor.gd" id="9_j3ywl"]
-[ext_resource type="Script" path="res://scripts/classes/enemy.gd" id="13_177aq"]
-[ext_resource type="Texture2D" uid="uid://csmxdy1ju5s8k" path="res://assets/sprites/characters/enemies.png" id="14_7q2h5"]
+[ext_resource type="PackedScene" uid="uid://heqj82sojj2y" path="res://scenes/enitities/characters/enemy.tscn" id="14_7jnbs"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_f2q2i"]
 size = Vector2(20, 20)
@@ -95,21 +95,6 @@ height = 1.0
 [sub_resource type="ViewportTexture" id="ViewportTexture_g8xmr"]
 viewport_path = NodePath("Entities/Crystal/SubViewport")
 
-[sub_resource type="Resource" id="Resource_dkdcn"]
-script = ExtResource("6_iscmq")
-base_max_hp = 0.0
-base_hp_regen = 0.0
-base_attack_damage = 0.0
-base_attack_speed = 0.0
-base_critical_chance = 0.0
-base_critical_damage = 0.0
-base_attack_range = 0.0
-base_attack_cooldown = 0.0
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hh5ve"]
-radius = 0.25
-height = 0.5
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_q3tvy"]
 size = Vector3(0.25, 0.25, 0.25)
 
@@ -129,6 +114,8 @@ shadow_enabled = true
 shadow_opacity = 0.87
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="pause_menu2" parent="CanvasLayer" instance=ExtResource("4_r6gfg")]
 
 [node name="DebuggerLabel" type="Label" parent="CanvasLayer"]
 visible = false
@@ -163,6 +150,14 @@ progress_bar = NodePath("ProgressBar")
 anim_player = NodePath("AnimationPlayer")
 upgrade_menu = NodePath("upgrade_menu")
 
+[node name="upgrade_menu" parent="CanvasLayer/Control/LootBox" instance=ExtResource("5_bf3hy")]
+layout_mode = 1
+offset_left = -80.0
+offset_top = -360.0
+offset_right = -208.0
+offset_bottom = -520.0
+scale = Vector2(0.75, 0.75)
+
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/LootBox"]
 position = Vector2(32, 8)
 scale = Vector2(2, 2)
@@ -194,20 +189,67 @@ offset_right = 120.0
 offset_bottom = 147.0
 show_percentage = false
 
-[node name="upgrade_menu" parent="CanvasLayer/Control/LootBox" instance=ExtResource("3_cf1d7")]
-visible = false
-custom_minimum_size = Vector2(0, 0.965)
+[node name="LootBox2" type="Panel" parent="CanvasLayer/Control" node_paths=PackedStringArray("progress_bar", "anim_player", "upgrade_menu")]
 layout_mode = 1
-offset_left = -150.0
-offset_top = -480.0
-offset_right = -278.0
-offset_bottom = -639.035
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -160.0
+offset_right = 64.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("4_8mtqr")
+progress_bar = NodePath("ProgressBar")
+anim_player = NodePath("AnimationPlayer")
+upgrade_menu = NodePath("upgrade_menu")
+
+[node name="upgrade_menu" parent="CanvasLayer/Control/LootBox2" instance=ExtResource("5_bf3hy")]
+layout_mode = 1
+offset_left = -80.0
+offset_top = -360.0
+offset_right = -208.0
+offset_bottom = -520.0
+scale = Vector2(0.75, 0.75)
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/LootBox2"]
+position = Vector2(32, 8)
+scale = Vector2(2, 2)
+texture = ExtResource("4_8yb40")
+centered = false
+hframes = 4
+vframes = 5
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/LootBox2"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 120.0
+offset_right = 121.0
+offset_bottom = 143.0
+text = "5s"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Control/LootBox2"]
+libraries = {
+"": SubResource("AnimationLibrary_x6ivv")
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control/LootBox2"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 120.0
+offset_right = 120.0
+offset_bottom = 147.0
+show_percentage = false
 
 [node name="StatsRichLabel" type="RichTextLabel" parent="CanvasLayer"]
 offset_top = 384.0
 offset_right = 264.0
 offset_bottom = 424.0
-text = "Junks: ..."
+text = "Junk: ..."
 script = ExtResource("4_mid4g")
 
 [node name="RecordsRichLabel" type="RichTextLabel" parent="CanvasLayer"]
@@ -218,8 +260,6 @@ offset_bottom = 704.0
 theme_override_colors/default_color = Color(1, 0, 0.294118, 1)
 bbcode_enabled = true
 script = ExtResource("5_u4yg5")
-
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("4_r6gfg")]
 
 [node name="GUI" parent="." instance=ExtResource("1_303we")]
 visible = false
@@ -264,24 +304,7 @@ theme = SubResource("Theme_hdx8u")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.866026, -0.5)
 texture = SubResource("ViewportTexture_g8xmr")
 
-[node name="Enemy" type="RigidBody3D" parent="Entities"]
-transform = Transform3D(1, 0, 0, 0, 1, 3.57628e-07, 0, -3.57628e-07, 1, 1, 0.0500002, 0.0866027)
-script = ExtResource("13_177aq")
-NAME = null
-stats = SubResource("Resource_dkdcn")
-level = null
-max_hp = null
-max_hp_multiplier = null
-speed_multiplier = null
-
-[node name="Sprite3D" type="Sprite3D" parent="Entities/Enemy"]
-texture = ExtResource("14_7q2h5")
-hframes = 4
-vframes = 36
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Entities/Enemy"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0.0866025)
-shape = SubResource("CapsuleShape3D_hh5ve")
+[node name="Enemy" parent="Entities" instance=ExtResource("14_7jnbs")]
 
 [node name="Cursor" type="Area3D" parent="."]
 monitoring = false
@@ -291,4 +314,6 @@ script = ExtResource("9_j3ywl")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cursor"]
 shape = SubResource("BoxShape3D_q3tvy")
 
-[connection signal="mouse_entered" from="CanvasLayer/Control/LootBox" to="CanvasLayer/Control/LootBox" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="CanvasLayer/Control/LootBox/upgrade_menu" to="CanvasLayer/Control/LootBox" method="_on_upgrade_menu_mouse_entered"]
+[connection signal="mouse_entered" from="CanvasLayer/Control/LootBox2" to="CanvasLayer/Control/LootBox2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Control/LootBox2" to="CanvasLayer/Control/LootBox2" method="_on_mouse_exited"]

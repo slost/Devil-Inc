@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://heqj82sojj2y"]
+
+[ext_resource type="Script" path="res://scripts/classes/enemy.gd" id="1_t8nh5"]
+[ext_resource type="Script" path="res://scripts/classes/base_stats.gd" id="2_ghtjj"]
+[ext_resource type="Texture2D" uid="uid://csmxdy1ju5s8k" path="res://assets/sprites/characters/enemies.png" id="3_mwq8h"]
+
+[sub_resource type="Resource" id="Resource_dkdcn"]
+script = ExtResource("2_ghtjj")
+base_max_hp = 0.0
+base_hp_regen = 0.0
+base_attack_damage = 0.0
+base_attack_speed = 0.0
+base_critical_chance = 0.0
+base_critical_damage = 0.0
+base_attack_range = 0.0
+base_attack_cooldown = 0.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hh5ve"]
+radius = 0.25
+height = 0.5
+
+[node name="Enemy" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.57628e-07, 0, -3.57628e-07, 1, 1, 0.0500002, 0.0866027)
+script = ExtResource("1_t8nh5")
+NAME = null
+stats = SubResource("Resource_dkdcn")
+level = null
+max_hp = null
+max_hp_multiplier = null
+speed_multiplier = null
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = ExtResource("3_mwq8h")
+hframes = 4
+vframes = 36
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0.0866025)
+shape = SubResource("CapsuleShape3D_hh5ve")

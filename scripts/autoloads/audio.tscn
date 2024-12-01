@@ -5,9 +5,10 @@
 
 [sub_resource type="AudioStream" id="AudioStream_d2or0"]
 
-[node name="Audio" type="Node" node_paths=PackedStringArray("sfx_player")]
+[node name="Audio" type="Node" node_paths=PackedStringArray("sfx_player", "bgm_player")]
 script = ExtResource("1_dykq6")
 sfx_player = NodePath("SFX")
+bgm_player = NodePath("BGM")
 
 [node name="BGM" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("1_bwalw")
@@ -22,3 +23,7 @@ bus = &"Music"
 [node name="SFX" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStream_d2or0")
 bus = &"SFX"
+
+[node name="UI" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStream_d2or0")
+bus = &"UI"

@@ -1,16 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://ymdvgf33tuvq"]
+[gd_scene load_steps=3 format=3 uid="uid://3r31ec6mehsh"]
 
 [ext_resource type="Texture2D" uid="uid://bsi44517icajc" path="res://assets/sprites/ui/up_button.png" id="1_qrgxc"]
+[ext_resource type="Script" path="res://scenes/ui/chest_upgrade_button.gd" id="1_wxpo6"]
 
-[node name="chest_upgrade_button" type="Control"]
+[node name="chest_upgrade_button" type="Control" node_paths=PackedStringArray("upgrade_click")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_wxpo6")
+upgrade_click = NodePath("HBoxContainer/Button")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
 offset_right = 460.0
 offset_bottom = 72.0
 theme_override_constants/separation = -40

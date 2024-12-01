@@ -23,6 +23,7 @@ Global="*res://scripts/autoloads/global.gd"
 Util="*res://scripts/autoloads/util.gd"
 ProcGen="*res://scripts/autoloads/proc_gen.gd"
 Options="*res://scenes/options/options.tscn"
+Cheat="*res://scripts/autoloads/cheat.gd"
 
 [debug]
 

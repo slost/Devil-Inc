@@ -12,7 +12,7 @@ enum STATE {
 	DEAD
 }
 	
-func _process(delta: float) -> void:
+func _ready() -> void:
 
 	if Global.crystal != null:
 		state = STATE.CHASING
@@ -55,8 +55,8 @@ func _randomize_stats() -> void:
 
 
 func _randomize_sprite() -> void:
-	var max_sprites: int = 34 # VFrames
-	sprite = randi_range(1, 34)
+	var max_sprites: int = 36 # VFrames
+	sprite = randi_range(1, max_sprites)
 	if $Sprite3D:
 		$Sprite3D.frame = sprite * 4 # 4 is Hframes
 		print_debug("random sprite: " + str(sprite))

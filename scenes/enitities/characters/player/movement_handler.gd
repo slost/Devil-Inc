@@ -10,12 +10,15 @@ var is_moving: bool = false
 @export var time_to_focus: float = 15.0 # 15 frames
 
 @export var speed: float = 1.0
+@export var god_mode_speed: float = 5.0
 
 func _physics_process(delta: float) -> void:
     if not Global.player:
         return
 
     handle_movement()
+
+
 
     
 func handle_movement() -> void:
@@ -66,4 +69,8 @@ func move_to_cursor() -> void:
 func current_speed() -> float:
     var base_speed = 1
     var multi_speed = 1
-    return speed * base_speed * multi_speed
+    if Global.god_mode:
+        god_mode_speed = 20.0
+    else:
+        god_mode_speed = 1.0
+    return speed * base_speed * multi_speed * god_mode_speed

@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://b27eeg5c0oyp5"]
+[gd_scene load_steps=3 format=3 uid="uid://dbpf3rdsuy3c6"]
 
-[ext_resource type="PackedScene" uid="uid://ymdvgf33tuvq" path="res://scenes/ui/chest_upgrade_button.tscn" id="1_pjkl1"]
+[ext_resource type="PackedScene" uid="uid://3r31ec6mehsh" path="res://scenes/ui/chest_upgrade_button.tscn" id="1_pjkl1"]
 [ext_resource type="Script" path="res://scripts/classes/upgrade_menu.gd" id="1_tambx"]
 
 [node name="upgrade_menu" type="Control"]

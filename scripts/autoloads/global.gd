@@ -6,6 +6,9 @@ var cursor: Node
 var current_seed: String = "ASFASD"
 var crystal: Node
 
+var god_mode: bool = false
+
+
 var junks: int
 
 
