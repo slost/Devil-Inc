@@ -1,7 +1,7 @@
 [gd_scene load_steps=29 format=3 uid="uid://cabyflgkmv51q"]
-
 [ext_resource type="PackedScene" uid="uid://642fxxr0tiur" path="res://scenes/ui/gui.tscn" id="1_303we"]
 [ext_resource type="Texture2D" uid="uid://wgis0tbn8g77" path="res://assets/sprites/characters/cystal.png" id="1_04058"]
+[ext_resource type="Script" path="res://scenes/game.gd" id="1_bfsv0"]
 [ext_resource type="PackedScene" uid="uid://qhhokma80i3g" path="res://scenes/enitities/characters/player/player.tscn" id="1_rc2yo"]
 [ext_resource type="Script" path="res://scenes/ui/debugger_label.gd" id="3_1imtx"]
 [ext_resource type="PackedScene" uid="uid://b27eeg5c0oyp5" path="res://scenes/ui/upgrade_menu.tscn" id="3_cf1d7"]
@@ -95,6 +95,17 @@ height = 1.0
 [sub_resource type="ViewportTexture" id="ViewportTexture_g8xmr"]
 viewport_path = NodePath("Entities/Crystal/SubViewport")
 
+[sub_resource type="Resource" id="Resource_dkdcn"]
+script = ExtResource("6_iscmq")
+base_max_hp = 0.0
+base_hp_regen = 0.0
+base_attack_damage = 0.0
+base_attack_speed = 0.0
+base_critical_chance = 0.0
+base_critical_damage = 0.0
+base_attack_range = 0.0
+base_attack_cooldown = 0.0
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hh5ve"]
 radius = 0.25
 height = 0.5
@@ -103,6 +114,7 @@ height = 0.5
 size = Vector3(0.25, 0.25, 0.25)
 
 [node name="Game" type="Node3D"]
+script = ExtResource("1_bfsv0")
 
 [node name="Map" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.999679, 0.0253568, 0, -0.0253568, 0.999679, 0, -1, 0)
@@ -253,9 +265,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.866026, -0.5)
 texture = SubResource("ViewportTexture_g8xmr")
 
 [node name="Enemy" type="RigidBody3D" parent="Entities"]
-transform = Transform3D(1, 0, 0, 0, 1, 3.57628e-07, 0, -3.57628e-07, 1, 1, -0.0499999, -0.0866024)
+transform = Transform3D(1, 0, 0, 0, 1, 3.57628e-07, 0, -3.57628e-07, 1, 1, 0.0500002, 0.0866027)
 script = ExtResource("13_177aq")
 NAME = null
+stats = SubResource("Resource_dkdcn")
 level = null
 max_hp = null
 max_hp_multiplier = null
@@ -267,6 +280,7 @@ hframes = 4
 vframes = 36
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Entities/Enemy"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0.0866025)
 shape = SubResource("CapsuleShape3D_hh5ve")
 
 [node name="Cursor" type="Area3D" parent="."]

@@ -14,12 +14,13 @@ class_name Character
 var hp: float = 0.0
 
 func _ready() -> void:
-	max_hp = Util.get_max_hp(stats.base_max_hp, max_hp_multiplier)
+	max_hp = Util.get_max_hp(get_stat("base_max_hp"), max_hp_multiplier)
 	hp = max_hp
 
 func get_stat(stat: String) -> float:
 	if stats:
 		return stats.get("stat")
+
 	return 0.0
 
 func set_stat(stat: String, value: float) -> void:

@@ -5,6 +5,7 @@ class_name Crystal
 
 func _ready() -> void:
 	Global.crystal = self
+	hp = 100
 
 func _process(delta: float) -> void:
 	progress_bar.value = hp
