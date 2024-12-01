@@ -25,9 +25,6 @@ func handle_movement() -> void:
 
     mouse_position = get_viewport().get_mouse_position()
 
-    print(is_moving)
-    print("focus_timer: ", focus_timer)
-
     if mouse_position != old_mouse_position:
         point_to_move_timer += 1
         if point_to_move_timer >= time_to_move:
