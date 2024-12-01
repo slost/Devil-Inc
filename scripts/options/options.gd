@@ -7,8 +7,12 @@ signal exit_options_menu
 
 func _ready() -> void:
 	exit_button.button_down.connect(_on_back_pressed)
-	set_process(false)
+	set_showing(false)
 
 func _on_back_pressed() -> void:
 	exit_options_menu.emit()
 	set_process(false)
+
+func set_showing(value: bool) -> void:
+	visible = value
+	set_process(value)

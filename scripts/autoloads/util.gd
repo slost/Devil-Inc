@@ -32,3 +32,7 @@ func generate_item():
 func get_max_hp(base_max_hp: float, multiplier: float) -> float:
 	var final_max_hp = base_max_hp * multiplier
 	return final_max_hp
+
+func get_speed(base_speed: float, multiplier: float) -> float:
+	var final_speed = base_speed * multiplier
+	return final_speed

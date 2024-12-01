@@ -4,6 +4,9 @@ var player: Node
 var camera: Camera3D
 var cursor: Node
 var current_seed: String = "ASFASD"
+var crystal: Node
+
+
 
 var palatte: Array = [
     Color.html("#0f052d"),

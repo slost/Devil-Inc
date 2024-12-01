@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cabyflgkmv51q"]
+[gd_scene load_steps=28 format=3 uid="uid://cabyflgkmv51q"]
 
 [ext_resource type="PackedScene" uid="uid://642fxxr0tiur" path="res://scenes/ui/gui.tscn" id="1_303we"]
 [ext_resource type="Texture2D" uid="uid://wgis0tbn8g77" path="res://assets/sprites/characters/cystal.png" id="1_04058"]
@@ -13,6 +13,8 @@
 [ext_resource type="Script" path="res://scripts/classes/base_stats.gd" id="6_iscmq"]
 [ext_resource type="PackedScene" uid="uid://7h715af03isd" path="res://scenes/ui/progress_bar.tscn" id="8_dkxn6"]
 [ext_resource type="Script" path="res://scenes/enitities/characters/player/cursor.gd" id="9_j3ywl"]
+[ext_resource type="Script" path="res://scripts/classes/enemy.gd" id="13_177aq"]
+[ext_resource type="Texture2D" uid="uid://csmxdy1ju5s8k" path="res://assets/sprites/characters/enemies.png" id="14_7q2h5"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_f2q2i"]
 size = Vector2(20, 20)
@@ -91,6 +93,10 @@ height = 1.0
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_g8xmr"]
 viewport_path = NodePath("Entities/Crystal/SubViewport")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hh5ve"]
+radius = 0.25
+height = 0.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q3tvy"]
 size = Vector3(0.25, 0.25, 0.25)
@@ -206,7 +212,7 @@ transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422619, 0, -0.422619, 0.906308, 
 fov = 62.5
 
 [node name="Crystal" type="RigidBody3D" parent="Entities" node_paths=PackedStringArray("progress_bar")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6, -2.98023e-09, 0.1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6, 0.0500001, 0.186603)
 gravity_scale = 0.0
 freeze = true
 script = ExtResource("5_w7jn0")
@@ -234,6 +240,18 @@ theme = SubResource("Theme_hdx8u")
 [node name="Sprite3D2" type="Sprite3D" parent="Entities/Crystal"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.866026, -0.5)
 texture = SubResource("ViewportTexture_g8xmr")
+
+[node name="Enemy" type="RigidBody3D" parent="Entities"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.57628e-07, 0, -3.57628e-07, 1, 1, -0.0499999, -0.0866024)
+script = ExtResource("13_177aq")
+
+[node name="Sprite3D" type="Sprite3D" parent="Entities/Enemy"]
+texture = ExtResource("14_7q2h5")
+hframes = 4
+vframes = 36
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entities/Enemy"]
+shape = SubResource("CapsuleShape3D_hh5ve")
 
 [node name="Cursor" type="Area3D" parent="."]
 monitoring = false

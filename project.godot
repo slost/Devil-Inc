@@ -22,11 +22,13 @@ Audio="*res://scripts/autoloads/audio.tscn"
 Global="*res://scripts/autoloads/global.gd"
 Util="*res://scripts/autoloads/util.gd"
 ProcGen="*res://scripts/autoloads/proc_gen.gd"
+Options="*res://scenes/options/options.tscn"
 
 [debug]
 
 gdscript/warnings/unused_variable=0
 gdscript/warnings/unused_parameter=0
+shapes/collision/shape_color=Color(1, 0, 1, 1)
 
 [display]
 
