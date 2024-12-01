@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://scripts/classes/lootbox.gd" id="4_8mtqr"]
 [ext_resource type="Texture2D" uid="uid://cjenraw6v5maa" path="res://assets/sprites/loot_boxes/loot_boxes.png" id="4_8yb40"]
 [ext_resource type="Script" path="res://scenes/ui/stats_rich_label.gd" id="4_mid4g"]
-[ext_resource type="PackedScene" uid="uid://ijhfll1epcbt" path="res://scenes/ui/pause_menu.tscn" id="4_r6gfg"]
+[ext_resource type="PackedScene" uid="uid://bk0nfo5btjpxm" path="res://scenes/ui/pause_menu.tscn" id="4_r6gfg"]
 [ext_resource type="Script" path="res://scenes/ui/records_rich_label.gd" id="5_u4yg5"]
 [ext_resource type="Script" path="res://scripts/classes/crystal.gd" id="5_w7jn0"]
 [ext_resource type="Script" path="res://scripts/classes/base_stats.gd" id="6_iscmq"]
@@ -117,8 +117,6 @@ shadow_opacity = 0.87
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="pause_menu2" parent="CanvasLayer" instance=ExtResource("4_r6gfg")]
-
 [node name="DebuggerLabel" type="Label" parent="CanvasLayer"]
 visible = false
 offset_top = 264.0
@@ -197,6 +195,8 @@ offset_bottom = 704.0
 theme_override_colors/default_color = Color(1, 0, 0.294118, 1)
 bbcode_enabled = true
 script = ExtResource("5_u4yg5")
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("4_r6gfg")]
 
 [node name="GUI" parent="." instance=ExtResource("1_303we")]
 visible = false
